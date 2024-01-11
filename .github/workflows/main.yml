@@ -14,6 +14,7 @@ jobs:
               with:
                 build: npm run build
                 start: npm start
+                spec: missing.cy.js
                 browser: chrome
 
 
