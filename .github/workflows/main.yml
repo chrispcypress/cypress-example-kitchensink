@@ -10,7 +10,7 @@ jobs:
               uses: actions/checkout@v4.1.1
 
             - name: Cypress run
-              uses: loseshoes
+              uses: cypress-io/github-action@v6.5.0
               with:
                 build: npm run build
                 start: npm start
