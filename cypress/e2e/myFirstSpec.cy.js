@@ -11,7 +11,7 @@
 // please read our getting started guide:
 // https://on.cypress.io/introduction-to-cypress
 
-describe('example to-do app', () => {
+describe('To Do App', () => {
   beforeEach(() => {
     // Cypress starts out with a blank slate for each test
     // so we must tell it to visit our website with the `cy.visit()` command.
@@ -24,6 +24,19 @@ describe('example to-do app', () => {
     cy.get('.todo-list > li').should('be.visible').should('have.length', '2')
     cy.get('.todo-list > li').first().should('have.text', 'Pay electric bill')
     cy.get('.todo-list > li').last().should('have.text', 'Walk the dog')
+  })
+
+  it("Check Off First To Do Item and Validate Text Strike-Thru", () => {
+    cy.get('.toggle').first().check()
+    cy.get('.todo-list > li:nth-child(1) > div > label').should('have.text', 'Pay electric bill').should('have.css', 'text-decoration-line', 'line-through')
+    cy.get('.todo-list > li').last().should('have.text', 'Walk the dog').should('not.have.css', 'text-decoration-line', 'line-through')
+  })
+
+  it("Check Off Second To Do Item and Validate Text Strike-Thru", () => {
+    cy.get('.toggle').first().check()
+    cy.get('.toggle').last().check()
+    cy.get('.todo-list > li:nth-child(2) > div > label').should('have.text', 'Walk the dog')
+    cy.get('.todo-list > li:nth-child(1) > div > label').should('have.text', 'Pay electric bill').should('have.css', 'text-decoration-line', 'line-through')
   })
 
 
