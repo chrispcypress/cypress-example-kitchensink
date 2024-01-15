@@ -27,7 +27,7 @@ describe('To Do App', () => {
 
   it("Add an Item to The List and Remove It", () => {
     cy.get('.new-todo').should('be.visible').type('Get toothpaste').type('{enter}')
-    cy.get('ul > li:nth-child(3) > div > .todo-button').click({force: true})
+    cy.get('section > ul > li:nth-child(3) > div > .todo-button').invoke('show').click()
     cy.get('ul > li:nth-child(3) > div > label').should('not.exist')
   })
 
