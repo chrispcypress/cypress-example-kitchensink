@@ -12,3 +12,4 @@ cypress/fixtures/users.json
 env
 .DS_Store
 cypress/e2e/todo.cy.js
+cypress/e2e/myFirstSpecJenkins.cy.js
