@@ -26,17 +26,23 @@ describe('To Do App', () => {
     cy.get('.todo-list > li').last().should('have.text', 'Walk the dog')
   })
 
-  it("Check Off First To Do Item and Validate Text Strike-Thru", () => {
+  it("Check Off First To Do Item", () => {
     cy.get('.toggle').first().check()
     cy.get('.todo-list > li:nth-child(1) > div > label').should('have.text', 'Pay electric bill').should('have.css', 'text-decoration-line', 'line-through')
     cy.get('.todo-list > li').last().should('have.text', 'Walk the dog').should('not.have.css', 'text-decoration-line', 'line-through')
   })
 
-  it("Check Off Second To Do Item and Validate Text Strike-Thru", () => {
+  it("Check Off Second To Do Item", () => {
     cy.get('.toggle').first().check()
     cy.get('.toggle').last().check()
     cy.get('.todo-list > li:nth-child(2) > div > label').should('have.text', 'Walk the dog')
     cy.get('.todo-list > li:nth-child(1) > div > label').should('have.text', 'Pay electric bill').should('have.css', 'text-decoration-line', 'line-through')
+  })
+
+  it("Add an Item to The List and Remove It", () => {
+    cy.get('.new-todo').should('be.visible').type('Get toothpaste').type('{enter}')
+    cy.get('ul > li:nth-child(3) > div > .todo-button').click({force: true})
+    cy.get('ul > li:nth-child(3) > div > label').should('not.exist')
   })
 
 
