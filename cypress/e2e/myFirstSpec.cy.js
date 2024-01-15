@@ -29,6 +29,8 @@ describe('To Do App', () => {
     cy.get('.new-todo').should('be.visible').type('Get toothpaste').type('{enter}')
     cy.get('section > ul > li:nth-child(3) > div > .todo-button').invoke('show').click()
     cy.get('ul > li:nth-child(3) > div > label').should('not.exist')
+    cy.get('.todo-list > li:nth-child(1) > div > label').should('exist')
+    cy.get('.todo-list > li:nth-child(2) > div > label').should('exist')
   })
 
 })
