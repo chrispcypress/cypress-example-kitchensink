@@ -4,6 +4,7 @@
 describe('To Do App', () => {
   beforeEach(() => {
     cy.visit('http://localhost:8080/todo')
+    cy.viewport(1920, 1080)
   })
 
   it("Check Default List Count and Text", () => {
