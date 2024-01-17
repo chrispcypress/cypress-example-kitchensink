@@ -26,7 +26,7 @@ describe('To Do App', () => {
     cy.get('.todo-list > li:nth-child(1) > div > label').should('have.text', 'Pay electric bill').should('have.css', 'text-decoration-line', 'line-through')
   })
 
-  it("Add an Item to The List and Then Remove It", () => {
+  it("Add an Item to The List and Remove It", () => {
     cy.get('.new-todo').should('be.visible').type('Get toothpaste').type('{enter}')
     cy.get('section > ul > li:nth-child(3) > div > .todo-button').invoke('show').click()
     cy.get('ul > li:nth-child(3) > div > label').should('not.exist')
