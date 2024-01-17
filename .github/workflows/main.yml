@@ -8,8 +8,6 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4.1.1
-            - name: Cypress run Firefox
-              uses: cypress-io/github-action@v6.5.0
             - name: Cypress run Chrome
               uses: cypress-io/github-action@v6.5.0
               with:
