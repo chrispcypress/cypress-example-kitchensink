@@ -7,12 +7,14 @@ describe('To Do App', () => {
     cy.viewport(1920, 1080)
   })
 
+  //Verify number of items on the default to do list - should be 2
   it("Check Default List Count and Text", () => {
     cy.get('.todo-list > li').should('be.visible').should('have.length', '2')
     cy.get('.todo-list > li').first().should('have.text', 'Pay electric bill')
     cy.get('.todo-list > li').last().should('have.text', 'Walk the dog')
   })
 
+  // Check off the first item on the default to do list
   it("Check Off First To Do Item", () => {
     cy.get('.toggle').first().check()
     cy.get('.todo-list > li:nth-child(1) > div > label').should('have.text', 'Pay electric bill').should('have.css', 'text-decoration-line', 'line-through')
